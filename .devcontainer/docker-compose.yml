@@ -2,6 +2,15 @@ version: '3'
 services:
   # Update this to the name of the service you want to work with in your docker-compose.yml file
   plantuml-server:
+    build:
+      context: ./plantuml
+      dockerfile: ./Dockerfile
+    # command: /bin/sh -c "su jetty; bash /docker-entrypoint.sh"
+    container_name: plantuml-local-server
+    networks:
+      - markdown-network
+
+  editor:
     # If you want add a non-root user to your Dockerfile, you can use the "remoteUser"
     # property in devcontainer.json to cause VS Code its sub-processes (terminals, tasks, 
     # debugging) to execute as the user. Uncomment the next line if you want the entire 
@@ -17,7 +26,7 @@ services:
     # array). The sample below assumes your primary file is in the root of your project.
     #
     build:
-      context: .
+      context: ./editor
       dockerfile: ./Dockerfile
 
     volumes:
@@ -35,10 +44,13 @@ services:
     #   - seccomp:unconfined
 
     # Overrides default command so things don't shut down after the process ends.
-    # command: /bin/sh -c "while sleep 1000; do :; done"
-    command: /bin/sh -c "su jetty; bash /docker-entrypoint.sh"
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    # command: /bin/bash
     # image: plantuml/plantuml-server
-    container_name: plantuml-local-server
+    # container_name: plantuml-local-server
     # ports:
     #   - "9876:8080"
-
+    networks:
+      - markdown-network
+networks:
+  markdown-network:
