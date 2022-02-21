@@ -1,6 +1,7 @@
-# markdown-pe-devcontainer
+# markdown-dev
 
-Markdonw Preview Enhanced + devcontainer + draw.io + e.t.c.
+- Markdowm Preview Enhanched devcontainer
+  - Markdonw Preview Enhanced + devcontainer + draw.io + e.t.c.
 
 
 ## Instant setup
