@@ -7,5 +7,5 @@
 ## Instant setup
 
 ```
-curl -L https://api.github.com/repos/raucha/markdown-dev/tarball | tar xz --wildcards "*/.devcontainer" --strip-components=1
+curl -L https://api.github.com/repos/raucha/markdown-dev/tarball | tar xz -k --wildcards "*/.devcontainer" --strip-components=1
 ```
