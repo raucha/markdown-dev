@@ -1,3 +1,12 @@
 node_modules
 package.json
 package-lock.json
+workspace/*
+!workspace/.git_keep
+!workspace/test.md
+!workspace/test.svg
+
+./*
+!README.md
+!./.devcontainer
+!./.vscode

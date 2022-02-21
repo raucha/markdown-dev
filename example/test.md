@@ -12,4 +12,4 @@ stop
 
 @import "./test.svg"
 
-![代替テキスト](./test.svg.svg)
+![代替テキスト](./test.svg)
