@@ -1,6 +1,6 @@
 # markdown-dev
 - markdown writing enviromnent by vscode devcontainer
-- Markdonw Preview Enhanced + devcontainer + draw.io + PlantUML + e.t.c.
+  - Markdonw Preview Enhanced + devcontainer + draw.io + PlantUML + e.t.c.
 - Aso work behind Proxy network
 
 
