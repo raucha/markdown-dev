@@ -1,15 +1,24 @@
 version: '3'
+
+x-proxy: &proxy
+  - HTTP_PROXY=$HTTP_PROXY
+  - http_proxy=$http_proxy
+  - HTTPS_PROXY=$HTTPS_PROXY
+  - https_proxy=$https_proxy
+  - FTP_PROXY=$FTP_PROXY
+  - ftp_proxy=$ftp_proxy
+  - NO_PROXY=${NO_PROXY},plantuml-local-server
+  - no_proxy=${no_proxy},plantuml-local-server
 services:
-  # Update this to the name of the service you want to work with in your docker-compose.yml file
   plantuml-server:
     build:
       context: ./plantuml
-      dockerfile: ./Dockerfile
-    # command: /bin/sh -c "su jetty; bash /docker-entrypoint.sh"
+      # dockerfile: ./Dockerfile
+      args: *proxy
     container_name: plantuml-local-server
     networks:
       - markdown-network
-
+    environment: *proxy
   editor:
     # If you want add a non-root user to your Dockerfile, you can use the "remoteUser"
     # property in devcontainer.json to cause VS Code its sub-processes (terminals, tasks, 
@@ -24,13 +33,11 @@ services:
     # folder. Note that the path of the Dockerfile and context is relative to the *primary* 
     # docker-compose.yml file (the first in the devcontainer.json "dockerComposeFile"
     # array). The sample below assumes your primary file is in the root of your project.
-    #
     build:
       context: ./editor
-      dockerfile: ./Dockerfile
-
+      # dockerfile: ./Dockerfile
+      args: *proxy
     volumes:
-      # Update this to wherever you want VS Code to mount the folder of your project
       - ../workspace:/workspace:cached
       - ./.vscode:/workspace/.vscode:cached
 
@@ -45,12 +52,8 @@ services:
 
     # Overrides default command so things don't shut down after the process ends.
     command: /bin/sh -c "while sleep 1000; do :; done"
-    # command: /bin/bash
-    # image: plantuml/plantuml-server
-    # container_name: plantuml-local-server
-    # ports:
-    #   - "9876:8080"
     networks:
       - markdown-network
+    environment: *proxy
 networks:
   markdown-network:
