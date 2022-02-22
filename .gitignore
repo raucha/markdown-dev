@@ -1,5 +1,5 @@
 *
 !README.md
-!./.devcontainer
-!./.vscode
+!./.devcontainer/*
+!./.vscode/*
 !./example/*

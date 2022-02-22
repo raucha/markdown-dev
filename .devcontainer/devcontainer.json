@@ -31,7 +31,9 @@
 		"shd101wyy.markdown-preview-enhanced",
 		"ritwickdey.LiveServer",
 		"hediet.vscode-drawio",
-		"tomoki1207.pdf"
+		"tomoki1207.pdf",
+		"mushan.vscode-paste-image",
+		"Tyriar.luna-paint"
 	]
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.

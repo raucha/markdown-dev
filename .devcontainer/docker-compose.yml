@@ -15,7 +15,7 @@ services:
       context: ./plantuml
       # dockerfile: ./Dockerfile
       args: *proxy
-    container_name: plantuml-local-server
+    hostname: plantuml-local-server
     networks:
       - markdown-network
     environment: *proxy
