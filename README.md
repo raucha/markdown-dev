@@ -1,10 +1,14 @@
-# markdown-pe-devcontainer
+# markdown-dev
+- markdown writing enviromnent by vscode devcontainer
+  - Markdonw Preview Enhanced + devcontainer + draw.io + PlantUML + e.t.c.
+- Aso work behind Proxy network
 
-Markdonw Preview Enhanced + devcontainer + draw.io + e.t.c.
 
-
-## Instanty use devcontainer in current directory
+## Instant setup
 
 ```
-curl -L https://api.github.com/repos/raucha/markdown-dev/tarball | tar xz --wildcards "*/.devcontainer" --strip-components=1
+# Run in markdown directory
+curl -L https://api.github.com/repos/raucha/markdown-dev/tarball | tar xz -k --wildcards "*/.devcontainer" --strip-components=1
+code .
+# -> Open in container -> Yes
 ```
